@@ -1,5 +1,18 @@
 {
   "name": "doska",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^3.1.1",
+    "bootstrap": "4.0.0-beta.2",
+    "coffeescript": "1.12.7"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
+  },
+  "version": "1.1",
+  "description": "Rabota in EU",
+  "main": "application.js",
+  "repository": "https://github.com/AlekseyPoddubuy/board.git",
+  "author": "Aleksey Poddubnuy <aprduction@gmail.com>",
+  "license": "MIT"
 }
