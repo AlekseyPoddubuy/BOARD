@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212112338) do
+ActiveRecord::Schema.define(version: 20171212115414) do
+
+  create_table "agencies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "body"
+    t.string "rating"
+    t.datetime "datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.text "description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "title"
@@ -32,6 +52,17 @@ ActiveRecord::Schema.define(version: 20171212112338) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "company"
+    t.string "email"
+    t.string "site"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
