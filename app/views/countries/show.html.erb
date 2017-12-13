@@ -1,23 +1,330 @@
+<div class="posts">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<p class="count">Робота в стране - <%= @country.title %></p>
+				<table class="table table-striped">
+        <!--
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Username</th>
+            </tr>
+          </thead>
+      -->
+      <tbody>
+      	<% @posts.each do |post| %>
+
+      	<tr>
+      		<td><i class="fa fa-cog" aria-hidden="true"></i> <%= link_to post.title, post %></td>
+      		<td>
+      			<%= link_to post.country.title, country_path(post.country_id) %>
+      		</td>
+
+
+<!--
+              <td><%= post.category_id && post.category.title %></td>
+          -->
+          <td>Постоянная</td>
+          <td>12.12.2017</td>
+          <% end %>
+      </tr>
+      <tr>
+      	<td>Ruby on Rails developers</td>
+      	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Trader for traktor</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Javascript developer&#39;s at IM4U</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Some new vacancy for table </td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>PHP and Symphony Developer&#39;s</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Development to rabota in EU project</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Phyton and datebase developer at company</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Javascrip, C#-Sharp, Ruby On Rails and others</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>HTML5, CSS, Jquery, Remodal, Bootsrap</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Development at NASA, SCANA, robotxt</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Customer Support Manager </td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Ruby on Rail developer</td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>Senior DevOps (Microsoft Azure) ( SPB, possible remote) (high) </td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+
+          <tr>
+          	<td>QA manual Engineer (Middle) </td>
+          	<td>Австрия</td>
+<!--
+              <td>it</td>
+          -->
+          <td>12.12.2017</td>
+          <td>Постоянная</td>
+      </tr>
+
+  </tbody>
+</table>
+</div>
+<div class="col-lg-4">
+
+	<div class="countries">
+		<p>Вакансии по странам:</p>
+		<ul>
+			<% @countries.each do |country| %>
+			<li><%= link_to country.title, country %></li>
+			<% end %>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+
+		</ul>
+		<ul>
+
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+		</ul>
+	</div>
+
+	<div class="categories">
+		<p>Вакансии по категориям:</p>
+		<ul>
+			<% @categories.each do |category| %>
+			<li><%= link_to category.title, category %></li>
+			<% end %>
+			<li>Горничная</li>
+			<li>IT-сфера</li>
+			<li>Водитель </li>
+			<li>Горничная</li>
+			<li>Гувернантка</li>
+			<li>Домработница</li>
+			<li>Дизайнер</li>
+			<li>Оформитель</li>
+			<li>Журналист</li>
+			<li>Инженер</li>
+			<li>Медперсонал</li>
+		</ul>
+		<ul>
+			<li>Горничная</li>
+			<li>IT-сфера</li>
+			<li>Водитель </li>
+			<li>Горничная</li>
+			<li>Гувернантка</li>
+			<li>Домработница</li>
+			<li>Дизайнер</li>
+			<li>Оформитель</li>
+			<li>Журналист</li>
+			<li>Инженер</li>
+			<li>Медперсонал</li>
+		</ul>
+	</div>
+
+
+<!--
+   <h1>Categories</h1>
+
+   <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Description</th>
+        <th>Slug</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td><%= category.body %></td>
+        <td><%= category.description %></td>
+        <td><%= category.slug %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+-->
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<% @posts.each do |post| %>
+<tr>
+	<td><%= post.title %></td>
+	<td><%= post.description %></td>
+	<td><%= post.company %></td>
+	<td><%= post.email %></td>
+	<td><%= post.site %></td>
+	<td><%= post.phone %></td>
+	<td><%= link_to 'Show', post %></td>
+	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+	<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @country.title %>
+	<strong>Title:</strong>
+	<%= @country.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @country.body %>
+	<strong>Body:</strong>
+	<%= @country.body %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @country.description %>
+	<strong>Description:</strong>
+	<%= @country.description %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @country.slug %>
+	<strong>Slug:</strong>
+	<%= @country.slug %>
 </p>
 
 <%= link_to 'Edit', edit_country_path(@country) %> |

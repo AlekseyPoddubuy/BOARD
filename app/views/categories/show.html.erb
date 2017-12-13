@@ -1,23 +1,39 @@
+<% @posts.each do |post| %>
+<tr>
+	<td><%= post.title %></td>
+	<td><%= post.description %></td>
+	<td><%= post.company %></td>
+	<td><%= post.email %></td>
+	<td><%= post.site %></td>
+	<td><%= link_to 'Show', post %></td>
+	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+	<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @category.title %>
+	<strong>Title:</strong>
+	<%= @category.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @category.body %>
+	<strong>Body:</strong>
+	<%= @category.body %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @category.description %>
+	<strong>Description:</strong>
+	<%= @category.description %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @category.slug %>
+	<strong>Slug:</strong>
+	<%= @category.slug %>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |

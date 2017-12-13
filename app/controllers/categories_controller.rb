@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @posts = Post.where(category_id: [@category])
   end
 
   # GET /categories/new
@@ -71,4 +72,4 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:title, :body, :description, :slug)
     end
-end
+  end

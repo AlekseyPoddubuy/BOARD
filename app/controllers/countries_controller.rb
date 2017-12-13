@@ -10,6 +10,9 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+    @posts = Post.where(country_id: [@country])
+    @countries = Country.all
+    @categories = Category.all
   end
 
   # GET /countries/new
@@ -71,4 +74,4 @@ class CountriesController < ApplicationController
     def country_params
       params.require(:country).permit(:title, :body, :description, :slug)
     end
-end
+  end

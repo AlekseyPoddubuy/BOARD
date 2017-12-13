@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212115414) do
+ActiveRecord::Schema.define(version: 20171212203042) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "title"
@@ -60,9 +60,21 @@ ActiveRecord::Schema.define(version: 20171212115414) do
     t.string "company"
     t.string "email"
     t.string "site"
-    t.string "type"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.datetime "datetime"
+    t.integer "country_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_types_on_slug", unique: true
   end
 
 end

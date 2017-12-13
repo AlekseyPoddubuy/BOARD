@@ -1,47 +1,60 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<% if post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
-  </div>
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title, id: :post_title %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :post_description %>
-  </div>
+<div class="field">
+  <%= form.collection_select :category_id, Category.order(:title), :id, :title, { include_blank: true } %>
+</div>
 
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company, id: :post_company %>
-  </div>
+<div class="field">
+  <%= form.collection_select :country_id, Country.order(:title), :id, :title, { include_blank: true } %>
+</div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :post_email %>
-  </div>
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description, id: :post_description %>
+</div>
 
-  <div class="field">
-    <%= form.label :site %>
-    <%= form.text_field :site, id: :post_site %>
-  </div>
+<div class="field">
+  <%= form.label :company %>
+  <%= form.text_field :company, id: :post_company %>
+</div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :post_type %>
-  </div>
+<div class="field">
+  <%= form.label :datetime %>
+  <%= form.datetime_select :datetime, id: :post_datetime %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field">
+  <%= form.label :email %>
+  <%= form.text_field :email, id: :post_email %>
+</div>
+
+<div class="field">
+  <%= form.label :site %>
+  <%= form.text_field :site, id: :post_site %>
+</div>
+
+<div class="field">
+  <%= form.label :phone %>
+  <%= form.text_field :phone, id: :post_phone %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

@@ -1,0 +1,45 @@
+header {
+	background-color: #222b38;
+	z-index: 9999;
+}
+.logo {
+	display: -webkit-box;
+	margin: 10px 0 10px 0;
+	a {
+		color: #fff;
+	}
+	p {
+		color: #fff;
+		font-size: 16px;
+		text-transform: uppercase;
+		margin: 14px 8px 0 0;
+	}
+	img {
+		width: 20%;
+	}
+}
+.menu {
+	float: right;
+	a {
+		color: #fff;
+	}
+	ul li {
+		list-style-type: none;
+		display: inline-block;
+		margin: 24px 15px 0 15px;
+	}
+}
+
+.add-post {
+	a {
+		color: #fff;
+		border-radius: 6px;
+		border: 2px solid gold;
+		padding: 10px;
+	}
+	a:hover {
+		background-color: gold;
+		color: #000;
+	}
+}
+

@@ -1,0 +1,31 @@
+.complex {
+	background-color: #222b38;
+	padding: 40px 0 60px 0;
+}
+.ftr-trigger {
+	text-align: center;
+	color: #fff;
+	h6 {
+		font-size: 28px;
+		margin-bottom: 25px;
+	}
+	p {
+		margin-bottom: 25px;
+	}
+}
+.contact {
+	margin-top: 40px;
+	a {
+		color: #fff;
+		border-radius: 6px;
+		border: 2px solid gold;
+		padding: 10px;
+	}
+	a:hover {
+		background-color: gold;
+		color: #000;
+	}
+}
+footer {
+	background-color: #222b38;
+}
