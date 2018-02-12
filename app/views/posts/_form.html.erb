@@ -11,50 +11,81 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :title %>
-  <%= form.text_field :title, id: :post_title %>
+
+
+
+<div class="post-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="trigger">
+          <!--<h1>Добавить вакансию</h1>-->
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+
+        <div class="post-field">
+          <p>Заголовок вакансии:</p>
+          <%= form.text_field :title, id: :post_title, placeholder: "Строители в Германию"  %>
+        </div>
+
+        <div class="post-field">
+          <p>Ваш e-mail:</p>
+          <%= form.text_field :email, id: :post_email, placeholder: "example@google.com" %>
+        </div>
+
+        <div class="post-field">
+          <p>Категории:</p>
+          <%= form.collection_select :category_id, Category.order(:title), :id, :title, { include_blank: "Выберите категорию" } %>
+        </div>
+
+        <div class="post-field">
+          <p>Страны:</p>
+          <%= form.collection_select :country_id, Country.order(:title), :id, :title, { include_blank: "Выберите страну" } %>
+        </div>
+
+        <div class="post-field">
+          <p>Добавить описание:</p>
+          <%= form.text_area :description, id: :post_description %>
+        </div>
+
+        <p class="company-desc">Описание вашей компании:</p>
+
+        <div class="post-field">
+          <p>Введите название:</p>
+          <%= form.text_field :company, id: :post_company, placeholder: "Название вашей компании" %>
+        </div>
+
+        <div class="post-field">
+          <p>Ваш сайт:</p>
+          <%= form.text_field :site, id: :post_site, placeholder: "https://www.google.com" %>
+        </div>
+
+        <div class="post-field">
+          <p>Ваш номер телефона: <span>*номер телефона не публикуется</span></p>
+          <%= form.text_field :phone, id: :post_phone, placeholder: "(+38)067-565-12-43"  %>
+        </div>
+
+
+        <div class="post-field">
+          <p>PAYMENT STATUS</p>
+          <%= form.text_field :st, id: :post_st, value: '0' %>
+        </div>
+
+
+        <div class="field">
+          <%= form.label :datetime %>
+          <%= form.datetime_select :datetime, id: :post_datetime %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit class: 'btn btn-primary', value: 'Подать обьявление' %>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="field">
-  <%= form.collection_select :category_id, Category.order(:title), :id, :title, { include_blank: true } %>
-</div>
-
-<div class="field">
-  <%= form.collection_select :country_id, Country.order(:title), :id, :title, { include_blank: true } %>
-</div>
-
-<div class="field">
-  <%= form.label :description %>
-  <%= form.text_area :description, id: :post_description %>
-</div>
-
-<div class="field">
-  <%= form.label :company %>
-  <%= form.text_field :company, id: :post_company %>
-</div>
-
-<div class="field">
-  <%= form.label :datetime %>
-  <%= form.datetime_select :datetime, id: :post_datetime %>
-</div>
-
-<div class="field">
-  <%= form.label :email %>
-  <%= form.text_field :email, id: :post_email %>
-</div>
-
-<div class="field">
-  <%= form.label :site %>
-  <%= form.text_field :site, id: :post_site %>
-</div>
-
-<div class="field">
-  <%= form.label :phone %>
-  <%= form.text_field :phone, id: :post_phone %>
-</div>
-
-<div class="actions">
-  <%= form.submit %>
-</div>
 <% end %>

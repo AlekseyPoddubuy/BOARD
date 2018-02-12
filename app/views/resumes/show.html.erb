@@ -1,0 +1,114 @@
+<div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1><%= @resume.title %></h1>
+        <ul>
+          <li class="type"><i class="fa fa-battery-full" aria-hidden="true"></i> <a data-remodal-target="modal">Предложить работу</a></li>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @resume.city %></li>
+          <li><i class="fa fa-pie-chart" aria-hidden="true"></i> <%= @resume.position %></li>
+          <li><i class="fa fa-calendar" aria-hidden="true"></i> 21.12.2019</li>
+        </ul>
+      </div>
+      <div class="col-lg-12">
+        <div class="social">
+          <p>Социальный профиль компании: <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i>
+            Веб-сайт</a> / <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
+            Facebook</a> / <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            LinkedIn</a> / <%= link_to "Download Resume", @resume.attachment_url, class: "nav-link disabled" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="resume-show">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="avatar">
+            <%= image_tag "avatar.jpg" %>
+            <%= image_tag "esw.gif" %>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="resume-desc">
+            <h6>Кратко о кандидате:</h6>
+            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>
+            <h5>Personal Characteristics:</h5>
+            <ul>
+              <li>Excellent customer service skills, communication skills, and a happy, smiling attitude are essential.</li>
+              <li>Available to work required shifts including weekends, evenings and holidays.</li>
+              <li>I have great time management skills.</li>
+              <li>I take constructive criticism well and I am comfortable voicing opinions.</li>
+            </ul>
+            <h5>Experience:</h5>
+            <ul>
+              <p>Место роботы: <strong>Shopify</strong></p>
+              <li>Должность: Senior Marketing Lead</li>
+              <li>Maximus faucibus non non nibh. Cras luctus velit et ante vehicula, sit amet commodo magna eleifend. Fusce congue ante id urna porttitor luctus.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @resume.title %>
+  </p>
+
+  <p>
+    <strong>Position:</strong>
+    <%= @resume.position %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= @resume.city %>
+  </p>
+
+  <p>
+    <strong>Datetime:</strong>
+    <%= @resume.datetime %>
+  </p>
+
+  <p>
+    <strong>Skills:</strong>
+    <%= @resume.skills %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @resume.description %>
+  </p>
+
+  <%= link_to 'Edit', edit_resume_path(@resume) %> |
+  <%= link_to 'Back', resumes_path %>
+
+
+-->
+
+
+<!-- Remodal window input's will be here -->
+
+<div class="remodal" data-remodal-id="modal">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <h1>Remodal</h1>
+  <p>
+    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+  </p>
+  <br>
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
+

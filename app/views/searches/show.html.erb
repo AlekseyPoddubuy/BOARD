@@ -1,0 +1,132 @@
+<div class="posts">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<p class="count">Результаты поиска</p>
+				<table class="table table-striped">
+        <!--
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Username</th>
+            </tr>
+          </thead>
+      -->
+
+
+
+      
+      <tbody>
+      	<% @search.search_posts.each do |post| %>
+
+      	<tr>
+      		<td><i class="fa fa-cog" aria-hidden="true"></i>  <%= link_to truncate(post.title, length: 32), post %></td>
+      		<td>
+      			<%= link_to post.country.title, country_path(post.country_id) %>
+      		</td>
+      		<td>
+      			<%= link_to post.category.title, category_path(post.category_id) %>
+      		</td>
+
+
+      		<td>12.12.2017</td>
+      		<% end %>
+
+      	</tr>
+
+      </tbody>
+  </table>
+</div>
+<div class="col-lg-4">
+
+	<div class="countries">
+		<p>Вакансии по странам:</p>
+		<ul>
+			<% @countries.each do |country| %>
+			<li><%= link_to country.title, country %></li>
+			<li>
+			</li>
+			<% end %>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+
+		</ul>
+		<ul>
+
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+			<li>Нидерланды</li>
+		</ul>
+	</div>
+
+	<div class="categories">
+		<p>Вакансии по категориям:</p>
+		<ul>
+			<% @categories.each do |category| %>
+			<li><%= link_to category.title, category %></li>
+			<% end %>
+			<li>Горничная</li>
+			<li>IT-сфера</li>
+			<li>Водитель </li>
+			<li>Горничная</li>
+			<li>Гувернантка</li>
+			<li>Домработница</li>
+			<li>Дизайнер</li>
+			<li>Оформитель</li>
+			<li>Журналист</li>
+			<li>Инженер</li>
+			<li>Медперсонал</li>
+		</ul>
+		<ul>
+			<li>Горничная</li>
+			<li>IT-сфера</li>
+			<li>Водитель </li>
+			<li>Горничная</li>
+			<li>Гувернантка</li>
+			<li>Домработница</li>
+			<li>Дизайнер</li>
+			<li>Оформитель</li>
+			<li>Журналист</li>
+			<li>Инженер</li>
+			<li>Медперсонал</li>
+		</ul>
+	</div>
+
+
+</div>
+</div>
+</div>
+</div>

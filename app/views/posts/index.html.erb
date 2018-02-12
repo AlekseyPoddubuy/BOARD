@@ -1,52 +1,29 @@
-<div class="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="banner-txt">
-          <h1>Широкий вибір роботи з чудовими зарплатами!</h1>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <div class="search">
-          <input type="text" placeholder="Ключевые слова">
-          <select>
-            <option value="">Все страны</option>
-            <option value="">Австрия</option>
-            <option value="">Англия</option>
-            <option value="">Америка</option>
-            <option value="">Европа</option>
-            <option value="">Опаопа</option>
-          </select>
-
-          <select name="" id="">
-            <option value="">Все категории</option>
-            <option value="">IT</option>
-            <option value="">Разноробочий</option>
-            <option value="">Бригадир</option>
-            <option value="">Швея</option>
-            <option value="">Строитель</option>
-          </select>
-
-          <select name="" id="">
-            <option value="">Постоянная работа</option>
-          </select>
-          <div class="search-btn">
-            <%= link_to 'Подобрать вакансию' %>
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="posts">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
-        <p class="count">Всего обьявлений: 2519421</p>
-        <table class="table table-striped">
+     <div class="col-lg-12">
+      <%= form_for @search do |f| %>
+
+      <div class="search">
+        <%= f.text_field :keywords, placeholder: "Ключевые слова"  %>
+
+        <%= f.collection_select :category_id, Category.order(:title), :id, :title, :include_blank => 'Все категории' %>
+        <%= f.collection_select :country_id, Country.order(:title), :id, :title, :include_blank => 'Все страны' %>
+
+        <select name="" id="">
+          <option value="">Постоянная работа</option>
+        </select>
+        <%= f.submit "Подобрать вакансию", class: 'btn btn-warning' %>
+        
+      </div>
+      <% end %>
+
+    </div>
+
+    <div class="col-lg-9">
+      <p class="count">Всего обьявлений: <%= @posts.count + 193212 %></p>
+      <table class="table table-striped">
         <!--
           <thead>
             <tr>
@@ -58,12 +35,13 @@
           </thead>
         -->
         <tbody>
+
           <% @posts.each do |post| %>
 
           <tr>
-            <td><i class="fa fa-cog" aria-hidden="true"></i> <%= link_to post.title, post %></td>
+            <td><i class="fa fa-cog" aria-hidden="true"></i> <%= link_to truncate(post.title, length: 62), post %></td>
             <td>
-            <%= link_to post.country.title, country_path(post.country_id) %>
+              <%= link_to post.country.title, country_path(post.country_id) %>
             </td>
 
 
@@ -71,187 +49,79 @@
               <td><%= post.category_id && post.category.title %></td>
             -->
             <td>Постоянная</td>
-            <td>12.12.2017</td>
+            <td class="stars">
+
+              <% if post.st == "5" %>
+              <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+
+              <% elsif  post.st == "4"  %>
+
+
+              <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+
+              <% elsif  post.st == "3"  %>
+
+
+              <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+              <% else %>
+              <%= post.datetime.strftime("%d.%m.%Y") %>
+              <% end %>
+
+
+            </td>
             <% end %>
           </tr>
-          <tr>
-            <td>Ruby on Rails developers</td>
-            <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Trader for traktor</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Javascript developer&#39;s at IM4U</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Some new vacancy for table </td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>PHP and Symphony Developer&#39;s</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Development to rabota in EU project</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Phyton and datebase developer at company</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Javascrip, C#-Sharp, Ruby On Rails and others</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>HTML5, CSS, Jquery, Remodal, Bootsrap</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Development at NASA, SCANA, robotxt</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Customer Support Manager </td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Ruby on Rail developer</td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>Senior DevOps (Microsoft Azure) ( SPB, possible remote) (high) </td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-
-            <tr>
-              <td>QA manual Engineer (Middle) </td>
-              <td>Австрия</td>
-<!--
-              <td>it</td>
-            -->
-            <td>12.12.2017</td>
-            <td>Постоянная</td>
-          </tr>
+    
 
         </tbody>
       </table>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
 
       <div class="countries">
         <p>Вакансии по странам:</p>
         <ul>
           <% @countries.each do |country| %>
-          <li><%= link_to country.title, country %></li>
+          <li><i class="fa fa-plus" aria-hidden="true"></i> <%= link_to country.title, country %></li>
           <% end %>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
         </ul>
         <ul>
-
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
-          <li>Нидерланды</li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
         </ul>
       </div>
 
@@ -261,32 +131,33 @@
           <% @categories.each do |category| %>
           <li><%= link_to category.title, category %></li>
           <% end %>
-          <li>Горничная</li>
-          <li>IT-сфера</li>
-          <li>Водитель </li>
-          <li>Горничная</li>
-          <li>Гувернантка</li>
-          <li>Домработница</li>
-          <li>Дизайнер</li>
-          <li>Оформитель</li>
-          <li>Журналист</li>
-          <li>Инженер</li>
-          <li>Медперсонал</li>
+          <li><a href="#">Горничная</a></li>
+          <li><a href="#">IT-сфера</a></li>
+          <li><a href="#">Водитель</a></li>
+          <li><a href="#">Горничная</a></li>
+          <li><a href="#">Гувернантка</a></li>
+          <li><a href="#">Домработница</a></li>
+          <li><a href="#">Дизайнер</a></li>
+          <li><a href="#">Оформитель</a></li>
+          <li><a href="#">Журналист</a></li>
         </ul>
         <ul>
-         <li>Горничная</li>
-         <li>IT-сфера</li>
-         <li>Водитель </li>
-         <li>Горничная</li>
-         <li>Гувернантка</li>
-         <li>Домработница</li>
-         <li>Дизайнер</li>
-         <li>Оформитель</li>
-         <li>Журналист</li>
-         <li>Инженер</li>
-         <li>Медперсонал</li>
-       </ul>
-     </div>
+          <li><a href="#">Горничная</a></li>
+          <li><a href="#">IT-сфера</a></li>
+          <li><a href="#">Водитель</a></li>
+          <li><a href="#">Горничная</a></li>
+          <li><a href="#">Гувернантка</a></li>
+          <li><a href="#">Домработница</a></li>
+          <li><a href="#">Дизайнер</a></li>
+          <li><a href="#">Оформитель</a></li>
+          <li><a href="#">Журналист</a></li>
+          <li><a href="#">Инженер</a></li>
+          <li><a href="#">Медперсонал</a></li>
+        </ul>
+      </div>
+
+
+      <%= image_tag "esw.gif" %>
 
 
 <!--

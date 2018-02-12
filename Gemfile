@@ -34,9 +34,12 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem "font-awesome-rails"
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave', '~> 1.0'
-
-
-
+gem 'remodal-rails'
+gem 'simple_form'
+gem 'devise'
+gem 'guard-livereload', '~> 2.5', require: false
+gem 'cancancan'
+gem 'rolify'
 
 
 # Use Redis adapter to run Action Cable in production
@@ -66,6 +69,7 @@ end
 
 group :development do
   gem "sqlite3"
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :production do

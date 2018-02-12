@@ -1,0 +1,15 @@
+// Place all the styles related to the Topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.reply {
+	display: -webkit-inline-box;
+	img {
+		margin-top: 15px;
+	}
+	p {
+		padding: 17px 60px 5px 20px;
+		font-size: 14px;
+	}
+}

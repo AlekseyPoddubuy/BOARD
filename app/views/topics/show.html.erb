@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<div class="topic">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Форум о работе, трудоустройстве и проживании за рубежом</h1>
+			</div>
+			<div class="col-lg-12">
+				<div class="log-in">
+					<input type="text" placeholder=" Логин">
+					<input type="text" placeholder=" Введите пароль">
+					<button>Войти</button>
+				</div>
+			</div>
+
+			<!-- ROLE CHECK AND HAVE ABILITY TO CHANGES -->
+
+			<% if topic_author(@topic) %>
+			<div class="col-lg-12">
+
+				<%= link_to "Edit", edit_topic_path(@topic) %>
+				<%= link_to "Delete", @topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+			</div>
+			<% end %>
+
+			<!-- ROLE CHECK AND HAVE ABILITY TO CHANGES -->
+
+			<div class="col-lg-9">
+				<div class="topiclist">
+					<p class="section"><i class="fa fa-bullhorn" aria-hidden="true"></i> <%= @topic.title %></p>
+				</div>
+
+
+				<div class="forum">
+					<p class="forum-title"><%= @topic.title %></p>
+					<p id="by">опубликовано <%= @topic.user.username %> » 22.10.2018 9.39 pm</p>
+					<hr>
+					<p id="forum-desc"><%= @topic.content %></p>
+					<p id="forum-desc">Ответов в этой теме: <%= @topic.replies.count %></p>
+
+					<!-- Render here topic's replies -->
+					<div id="topic-replies">
+						<%= render @topic.replies %>
+					</div>
+
+
+					<% if user_signed_in?%>
+					<%= render "replies/form" %>
+					<% else %>
+
+					<p>To reply you need to <%= link_to "log-in", new_user_session_path %> Don't have a account <%= link_to "Register", new_user_registration_path %></p>
+					<% end %>
+
+
+
+
+					<a href="#">Ответить <i class="fa fm fa-mail-reply" aria-hidden="true"></i></a>
+				</div>
+				
+
+
+				<!-- Render here topic's replies -->
+
+			</div>
+			<div class="col-lg-3">
+				<div class="topiclist">
+					<p class="section"><i class="fa fa-bar-chart" aria-hidden="true"></i> Рекламный блок</p>
+					<div class="adv">
+						<%= image_tag "esw.gif" %>
+					</div>
+				</div>
+
+				<div class="topiclist">
+					<p class="section"><i class="fa fa-bar-chart" aria-hidden="true"></i> Рекламный блок</p>
+					<div class="adv">
+						<ul>
+							<li id="stat">Сейчас на сайте: 5</li>
+							<li class="stat">Всего тем: 5</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<%= form_with(model: resume, local: true) do |form| %>
+<% if resume.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+  <ul>
+    <% resume.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title, id: :resume_title %>
+</div>
+
+<div class="field">
+  <%= form.label :position %>
+  <%= form.text_field :position, id: :resume_position %>
+</div>
+
+<div class="field">
+  <%= form.label :city %>
+  <%= form.text_field :city, id: :resume_city %>
+</div>
+
+<div class="field">
+  <%= form.label :datetime %>
+  <%= form.datetime_select :datetime, id: :resume_datetime %>
+</div>
+
+<div class="field">
+  <%= form.label :skills %>
+  <%= form.text_area :skills, id: :resume_skills %>
+</div>
+
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description, id: :resume_description %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
+
+
+<%= form_for @resume, html: { multipart: true } do |f| %>
+<%= f.label :name %>
+<%= f.text_field :title %>
+<%= f.label :attachment %>
+<%= f.file_field :attachment %>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

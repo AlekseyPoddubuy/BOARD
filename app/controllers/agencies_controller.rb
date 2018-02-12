@@ -4,7 +4,7 @@ class AgenciesController < ApplicationController
   # GET /agencies
   # GET /agencies.json
   def index
-    @agencies = Agency.all
+    @agencies = Agency.order(rate: :asc)
   end
 
   # GET /agencies/1
@@ -69,6 +69,6 @@ class AgenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
-      params.require(:agency).permit(:title, :description, :body, :rating, :datetime)
+      params.require(:agency).permit(:title, :description, :body, :rating, :datetime, :avatar, :rate)
     end
 end

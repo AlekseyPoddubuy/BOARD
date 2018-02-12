@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212203042) do
+ActiveRecord::Schema.define(version: 20180209100607) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20171212203042) do
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer "rate"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,6 +45,14 @@ ActiveRecord::Schema.define(version: 20171212203042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_countries_on_slug", unique: true
+  end
+
+  create_table "faqs", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -66,6 +79,51 @@ ActiveRecord::Schema.define(version: 20171212203042) do
     t.integer "category_id"
     t.datetime "datetime"
     t.integer "country_id"
+    t.string "st"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text "reply"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "topic_id"
+    t.integer "user_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "title"
+    t.string "position"
+    t.string "city"
+    t.datetime "datetime"
+    t.text "skills"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "attachment"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "country_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "theme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "topic_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "theme_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -75,6 +133,24 @@ ActiveRecord::Schema.define(version: 20171212203042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_types_on_slug", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

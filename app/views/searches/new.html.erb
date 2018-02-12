@@ -1,0 +1,16 @@
+
+
+<%= form_for @search do |f| %>
+
+<%= f.text_field :keywords  %>
+
+
+
+<%= f.collection_select :category_id, Category.order(:title), :id, :title %>
+
+
+
+
+<%= f.submit "Search" %>
+
+<% end %>

@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 		
 	end
 
+	def agn
+		@posts = Post.all
+	end
+
 end

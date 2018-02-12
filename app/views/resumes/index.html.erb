@@ -1,0 +1,134 @@
+<div class="resumes-index">
+  <div class="container">
+    <div class="row">
+     <div class="col-lg-12">
+
+     <!--
+      <%= image_tag "personal.jpg" %>
+    -->
+
+    <h1>Подберите достойного кандидата в фирму</h1>
+    <div class="resume-search">
+      <input type="text" placeholder="Ключевые слова">
+      <select>
+        <option value="">Все страны</option>
+        <option value="">Австрия</option>
+        <option value="">Англия</option>
+        <option value="">Америка</option>
+        <option value="">Европа</option>
+        <option value="">Опаопа</option>
+      </select>
+
+      <select name="" id="">
+        <option value="">Все категории</option>
+        <option value="">IT</option>
+        <option value="">Разноробочий</option>
+        <option value="">Бригадир</option>
+        <option value="">Швея</option>
+        <option value="">Строитель</option>
+      </select>
+
+      <select name="" id="">
+        <option value="">Постоянная работа</option>
+      </select>
+      <div class="search-btn">
+        <%= link_to 'Подобрать вакансию' %>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="col-lg-12">
+   <table>
+    <tbody>
+      <% @resumes.each do |resume| %>
+
+      <tr class="resume-border" onclick="location.href='<%= resume_path(resume) %>'"> 
+        <td class="resume-avatar"><%= image_tag 'avatar.jpg' %></td>
+        <td class="resume-fio"><%= link_to resume.title, resume %> <%= resume.position %></td>
+        <td><i class="fa fa-map-marker" aria-hidden="true"></i> <%= resume.city %></td>
+        <td><%= truncate(resume.skills, length: 50) %></td>
+        <td>12.12.2017</td>
+      </tr>
+    </a>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+<!--
+<br>
+
+<%= link_to 'New Resume', new_resume_path %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Position</th>
+      <th>City</th>
+      <th>Datetime</th>
+      <th>Skills</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resumes.each do |resume| %>
+
+
+    <tr class="resume-border" data-link="<%= @resume %>">
+
+      <td><%= image_tag 'avatar.jpg' %></td>
+      <td><%= link_to resume.title, resume %></td>
+      <td><%= resume.position %></td>
+      <td><%= resume.city %></td>
+      <td><%= resume.datetime %></td>
+      <td><%= resume.skills %></td>
+    </tr>
+  </a>
+  <% end %>
+</tbody>
+</table>
+
+--><% if !flash[:notice].blank? %>
+<div class = "alert alert-info">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<br />
+
+<%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+ <thead>.
+  <tr>
+   <th>Name</th>
+   <th>Download Link</th>
+   <th> </th>
+ </tr>
+</thead>
+
+<tbody>
+  <% @resumes.each do |resume| %>
+
+  <tr>
+    <td><%= resume.title %></td>
+    <td><%= link_to "Download Resume", resume.attachment_url, class: "nav-link disabled" %></td>
+    <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.title}?" %></td>
+  </tr>
+
+  <% end %>
+</tbody>
+
+</table>

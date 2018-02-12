@@ -1,0 +1,84 @@
+// Place all the styles related to the Resumes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.resume-search {
+	background: rgba( 255,255,255, 0.5);
+	padding: 22px;
+	margin-bottom: 20px;
+	input {
+		margin-right: 11px;
+		padding-left: 5px;
+	}
+	select {
+		margin: 0 11px 0 11px;
+		width: 195px;
+		height: 30px;
+		background-color: #fff;
+	}
+}
+
+
+
+
+
+
+.resume-border {
+	border-left: 5px solid transparent;
+	&:hover {
+		cursor: pointer;
+		border-left: 5px solid #222b38;
+		background-color: gold;
+		a {
+			color: #000;
+		}
+	}
+	img {
+		width: 100%;
+	}
+}
+
+.resumes-index {
+	padding: 50px 0 20px 0;
+	background-image: image-url('abstrac.jpg');
+	h1 {
+		text-align: center;
+		font-size: 32px;
+		margin-bottom: 20px;
+	}
+}
+.resume-avatar {
+	margin-left: 10px;
+	padding: 20px;
+	width: 12%;
+}
+.avatar {
+	img {
+		margin-bottom: 20px;	
+	}
+}
+.resume-fio {
+
+	&:hover {
+		a {
+			color: #fff;
+		}
+	}
+	display: grid;
+	margin-top: 40px;
+}
+
+
+
+
+/* Resume's show */
+
+.resume-show {
+	margin: 50px 0 30px 0;
+}
+.resume-desc {
+	h6, h5 {
+		font-size: 23px;
+	}
+}

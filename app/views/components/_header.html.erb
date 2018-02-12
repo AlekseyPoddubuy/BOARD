@@ -1,25 +1,29 @@
 <header>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-2">
 				<div class="logo">
 					<p><%= link_to 'Rabota in', posts_path %></p> <%= image_tag "stars.png" %> 
 				</div>
 			</div>
 
-			<div class="col-lg-9">
+			<div class="col-lg-10">
 				<div class="menu">
 					<ul>
 						<li><%= link_to 'Главная', posts_path %></li>
-						<li><%= link_to 'ТОП-агенций' %></li>
-						<li><%= link_to 'FAQ' %></li>
-						<li><%= link_to 'Форум' %></li>
-						<li><%= link_to 'Добавить резюме' %></li>
-						<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
-					</ul>
+						<li><%= link_to 'Каталог агентств', agencies_path %></li>
+						<!--
+						<li><%= link_to 'ТОП-агенций', agencies_path %></li>
+					-->
+					<li><%= link_to 'Форум', topics_path %></li>
+					<li><%= link_to 'База резюме', resumes_path %></li>
 
-				</div>
+					<li><%= link_to 'Добавить резюме', controller: "resumes", action: "new" %></li>
+					<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
+</div>
 </header>

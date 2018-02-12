@@ -12,27 +12,34 @@
       </div>
       <div class="col-lg-12">
         <div class="social">
-          <p>Социальный профиль компании: <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i>
-            Веб-сайт</a> / <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
-            Facebook</a> / <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>
-            LinkedIn</a></p>
+          <p>Социальный профиль компании:
+            <%  if @post.site == "" %>
+
+            <% else %> 
+            <a href="<%= @post.site %>"><i class="fa fa-external-link" aria-hidden="true"></i>
+              Веб-сайт</a> /
+              <% end %> 
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
+              Facebook</a> / 
+              <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                LinkedIn</a></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="post-desc">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p class="detail">Детально о вакансии - <strong><%= @post.title %></strong></p>
-          <p>
-            <%= @post.description %>
-          </p> 
+      <div class="post-desc">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <p class="detail">Детально о вакансии - <strong><%= @post.title %></strong></p>
+              <p>
+                <%= @post.description %>
+              </p> 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
 
 

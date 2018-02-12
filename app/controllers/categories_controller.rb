@@ -11,6 +11,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @posts = Post.where(category_id: [@category])
+    @countries = Country.all
+    @categories = Category.all
   end
 
   # GET /categories/new

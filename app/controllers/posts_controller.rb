@@ -4,10 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
+    @posts = Post.all.order(st: :desc, datetime: :desc)
     @categories = Category.all
-    @countries = Country.all
+    @countries = Country.all.order(title: :asc)
+    @search = Search.new
   end
 
   # GET /posts/1
@@ -72,6 +72,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :company, :email, :site, :phone, :datetime, :category_id, :country_id )
+      params.require(:post).permit(:title, :description, :company, :email, :site, :phone, :datetime, :category_id, :country_id, :st )
     end
 end
