@@ -40,6 +40,7 @@ gem 'devise'
 gem 'guard-livereload', '~> 2.5', require: false
 gem 'cancancan'
 gem 'rolify'
+gem 'kaminari'
 
 
 # Use Redis adapter to run Action Cable in production

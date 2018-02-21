@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209100607) do
+ActiveRecord::Schema.define(version: 20180221124630) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "title"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 20180209100607) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_jobs_on_slug", unique: true
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -80,6 +88,10 @@ ActiveRecord::Schema.define(version: 20180209100607) do
     t.datetime "datetime"
     t.integer "country_id"
     t.string "st"
+    t.integer "old"
+    t.integer "ath"
+    t.integer "job_id"
+    t.string "payment"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -102,6 +114,17 @@ ActiveRecord::Schema.define(version: 20180209100607) do
     t.string "attachment"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "keywords"
     t.integer "category_id"
@@ -115,6 +138,7 @@ ActiveRecord::Schema.define(version: 20180209100607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "topic_id"
+    t.integer "status"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -149,8 +173,21 @@ ActiveRecord::Schema.define(version: 20180209100607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "nickname"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
 end

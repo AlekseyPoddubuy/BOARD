@@ -36,6 +36,11 @@
         </div>
 
         <div class="post-field">
+          <p>Зароботная плата:</p>
+          <%= form.text_field :payment, id: :post_payment, placeholder: "Зароботная плата" %>
+        </div>
+
+        <div class="post-field">
           <p>Категории:</p>
           <%= form.collection_select :category_id, Category.order(:title), :id, :title, { include_blank: "Выберите категорию" } %>
         </div>
@@ -43,6 +48,15 @@
         <div class="post-field">
           <p>Страны:</p>
           <%= form.collection_select :country_id, Country.order(:title), :id, :title, { include_blank: "Выберите страну" } %>
+        </div>
+
+        <div class="post-field">
+          <p>Тип вакансии:</p>
+
+          <%= form.collection_select :job_id, Job.order(:title), :id, :title, { include_blank: "Выберите тип предложения" }%>
+
+
+
         </div>
 
         <div class="post-field">
@@ -69,23 +83,52 @@
 
 
         <div class="post-field">
-          <p>PAYMENT STATUS</p>
-          <%= form.text_field :st, id: :post_st, value: '0' %>
+          <p>AGENT STYLE</p>
+          <%= form.select :ath, options_for_select([["Agency", "0"], ["Not Agency", "1"]]) %>
+
         </div>
 
 
-        <div class="field">
-          <%= form.label :datetime %>
-          <%= form.datetime_select :datetime, id: :post_datetime %>
+        <% if has_role?(:admin) %>
+
+        <div class="post-field">
+          <p>OLD?</p>
+          <%= form.select :old, options_for_select([["YES", "1"], ["NO", "0"]]) %>
+
+          <% form.text_field :old, id: :post_old, value: '1' %>
         </div>
 
-        <div class="actions">
-          <%= form.submit class: 'btn btn-primary', value: 'Подать обьявление' %>
-        </div>
 
+        <div class="visible">
+          <% else %>
+          <div class="crypt">
+
+            <% end %>
+            <div class="post-field">
+              <p>PAYMENT STATUS</p>
+              <%= form.text_field :st, id: :post_st, value: '0' %>
+            </div>
+
+
+            <div class="field">
+              <%= form.label :datetime %>
+              <%= form.datetime_select :datetime, id: :post_datetime %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= form.submit class: 'btn btn-primary', value: 'Подать обьявление' %>
+          </div>
+
+
+          <style>
+            .crypt {
+              display: none;
+            }
+          </style>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<% end %>
+  <% end %>

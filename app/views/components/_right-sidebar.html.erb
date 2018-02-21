@@ -1,0 +1,32 @@
+     <div class="countries">
+      <p>Вакансии по странам:</p>
+      <ul>
+
+
+        <% @countries[1,4].each do |country| %>
+        <li><%= link_to country.title, country %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% @countries[5,9].each do |country| %>
+        <li><%= link_to country.title, country %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="categories">
+      <p>Вакансии по категориям:</p>
+      <ul>
+        <% @categories[1,4].each do |category| %>
+        <li><%= link_to category.title, category %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% @categories[5,8].each do |category| %>
+        <li><%= link_to category.title, category %></li>
+        <% end %>
+      </ul>
+    </div>
+
+
+    <%= image_tag "esw.gif" %>

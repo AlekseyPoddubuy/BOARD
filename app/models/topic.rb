@@ -7,5 +7,5 @@ class Topic < ApplicationRecord
 
 	validates :title, :content, presence: true
 
-
+	resourcify
 end

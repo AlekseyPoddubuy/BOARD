@@ -13,6 +13,7 @@ class ThemesController < ApplicationController
   def show
     @topics = Topic.where('theme_id =?', @theme.id)
     @themes = Theme.all
+    @user = User.all
   end
 
   # GET /themes/new
@@ -72,6 +73,6 @@ class ThemesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def theme_params
-      params.require(:theme).permit(:theme)
+      params.require(:theme).permit(:theme, :status)
     end
   end

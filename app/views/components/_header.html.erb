@@ -8,22 +8,28 @@
 			</div>
 
 			<div class="col-lg-10">
-				<div class="menu">
-					<ul>
-						<li><%= link_to 'Главная', posts_path %></li>
-						<li><%= link_to 'Каталог агентств', agencies_path %></li>
-						<!--
-						<li><%= link_to 'ТОП-агенций', agencies_path %></li>
-					-->
-					<li><%= link_to 'Форум', topics_path %></li>
-					<li><%= link_to 'База резюме', resumes_path %></li>
 
-					<li><%= link_to 'Добавить резюме', controller: "resumes", action: "new" %></li>
-					<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
-				</ul>
+				<% if current_page?('http://localhost:3000/users/sign_in')
+					%>
+					sss
 
+					<% else %>
+
+
+					<div class="menu">
+						<ul>
+							<li><%= link_to 'Главная', posts_path %></li>
+							<li><%= link_to 'Каталог агентств', agencies_path %></li>
+							<li><%= link_to 'Форум', topics_path %></li>
+							<li><%= link_to 'База резюме', resumes_path %></li>
+
+							<li><%= link_to 'Добавить резюме', controller: "resumes", action: "new" %></li>
+							<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
+						</ul>
+						<% end %>
+
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</header>
+	</header>

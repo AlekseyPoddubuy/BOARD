@@ -3,10 +3,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.first, .last, .gap {
+	display: none;
+}
+
 .banner {
 	background-image: image-url('people.jpg');
 	background-size: cover;
 	height: 700px;
+}
+
+.search-block {
+	background-color: #3980e6;
+	padding: 28px 0 28px 0;
+	margin-bottom: 10px;
 }
 
 .search {
@@ -48,7 +59,7 @@
 }
 .table td {
 	padding: 4px 10px 4px 12px !important;
-	font-size: 13px !important;
+	font-size: 12px !important;
 }
 .stars {
 	text-align: center;

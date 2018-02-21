@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :jobs
   resources :themes
   resources :topics do
     resources :replies
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: { registrations: 'registrations'}
+
 
   
   resources :faqs
@@ -20,10 +22,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :countries
 
-  get 'agn' => 'pages#agn', as: :agn
-  get 'frmindex' => 'pages#frmindex', as: :frmindex
-  get 'frmsecond' => 'pages#frmsecond', as: :frmsecond
-  get 'frmshow' => 'pages#frmshow', as: :frmshow
+  get 'admin' => 'pages#admin', as: :admin
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

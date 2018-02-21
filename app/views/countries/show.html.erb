@@ -1,7 +1,7 @@
 <div class="posts">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 				<p class="count">Робота в стране - <%= @country.title %></p>
 				<table class="table table-striped">
         <!--
@@ -161,89 +161,9 @@
   </tbody>
 </table>
 </div>
-<div class="col-lg-4">
+<div class="col-lg-3">
 
-	<div class="countries">
-		<p>Вакансии по странам:</p>
-		<ul>
-			<% @countries.each do |country| %>
-			<li><%= link_to country.title, country %></li>
-			<% end %>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-
-		</ul>
-		<ul>
-
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-			<li>Нидерланды</li>
-		</ul>
-	</div>
-
-	<div class="categories">
-		<p>Вакансии по категориям:</p>
-		<ul>
-			<% @categories.each do |category| %>
-			<li><%= link_to category.title, category %></li>
-			<% end %>
-			<li>Горничная</li>
-			<li>IT-сфера</li>
-			<li>Водитель </li>
-			<li>Горничная</li>
-			<li>Гувернантка</li>
-			<li>Домработница</li>
-			<li>Дизайнер</li>
-			<li>Оформитель</li>
-			<li>Журналист</li>
-			<li>Инженер</li>
-			<li>Медперсонал</li>
-		</ul>
-		<ul>
-			<li>Горничная</li>
-			<li>IT-сфера</li>
-			<li>Водитель </li>
-			<li>Горничная</li>
-			<li>Гувернантка</li>
-			<li>Домработница</li>
-			<li>Дизайнер</li>
-			<li>Оформитель</li>
-			<li>Журналист</li>
-			<li>Инженер</li>
-			<li>Медперсонал</li>
-		</ul>
-	</div>
+<%= render "components/right-sidebar"  %>
 
 
 <!--

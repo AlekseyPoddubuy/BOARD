@@ -1,5 +1,4 @@
-
-<div class="posts">
+<div class="search-block">
   <div class="container">
     <div class="row">
      <div class="col-lg-12">
@@ -15,15 +14,23 @@
           <option value="">Постоянная работа</option>
         </select>
         <%= f.submit "Подобрать вакансию", class: 'btn btn-warning' %>
-        
+
       </div>
       <% end %>
 
     </div>
+  </div>
+</div>
+</div>
+<div class="posts">
 
-    <div class="col-lg-9">
-      <p class="count">Всего обьявлений: <%= @posts.count + 193212 %></p>
-      <table class="table table-striped">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-lg-9">
+        <p class="count">Всего обьявлений: <%= @posts.count + 193212 %></p>
+        <table class="table table-striped">
         <!--
           <thead>
             <tr>
@@ -38,17 +45,54 @@
 
           <% @posts.each do |post| %>
 
-          <tr>
-            <td><i class="fa fa-cog" aria-hidden="true"></i> <%= link_to truncate(post.title, length: 62), post %></td>
-            <td>
-              <%= link_to post.country.title, country_path(post.country_id) %>
-            </td>
+
+
+          <% if post.old == 1 %>
+
+          <tr class="red">
+            <% else %>
+            <tr>
+
+              <% end %>
+
+              <td>
+                <% if post.job_id == nil %>
+                Не указано
+                <% else %>
+                <%= link_to post.job.title, job_path(post.job_id), title: 'Вакансия в архиве' %>
+                <% end %>
+
+
+
+              </td>
+              <td>
+
+                <% if post.old == 1 %>
+
+                <%= link_to truncate(post.title, length: 62), '#', title: 'Вакансия в архиве' %></td>
+
+                <% else %>
+
+                <%= link_to truncate(post.title, length: 62), post %></td>
+
+                <% end %>
+
+
+                <td>
+                  <%= link_to post.country.title, country_path(post.country_id) %>
+                </td>
 
 
 <!--
-              <td><%= post.category_id && post.category.title %></td>
+              <td><%# post.category_id && post.category.title %></td>
             -->
-            <td>Постоянная</td>
+            <td>
+              <% if post.payment == nil %>
+              Неуказано
+              <% else %>
+              <%= post.payment %>
+              <% end %>       
+            </td>
             <td class="stars">
 
               <% if post.st == "5" %>
@@ -64,100 +108,44 @@
 
               <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
               <% else %>
+
+
+
+              <% if post.old == 1 %>
+
+              В архиве</td>
+
+              <% else %>
+
+
               <%= post.datetime.strftime("%d.%m.%Y") %>
+              
+              <% end %>
+
+
+
+
+
+
               <% end %>
 
 
             </td>
+
             <% end %>
           </tr>
-    
+
 
         </tbody>
       </table>
+      <div class="container pagination justify-content-center" >
+
+        <%= paginate @posts %>
+      </div>
     </div>
     <div class="col-lg-3">
 
-      <div class="countries">
-        <p>Вакансии по странам:</p>
-        <ul>
-          <% @countries.each do |country| %>
-          <li><i class="fa fa-plus" aria-hidden="true"></i> <%= link_to country.title, country %></li>
-          <% end %>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-        </ul>
-        <ul>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-          <li><i class="fa fa-globe" aria-hidden="true"></i> <a href="#">Нидерланды</a></li>
-        </ul>
-      </div>
-
-      <div class="categories">
-        <p>Вакансии по категориям:</p>
-        <ul>
-          <% @categories.each do |category| %>
-          <li><%= link_to category.title, category %></li>
-          <% end %>
-          <li><a href="#">Горничная</a></li>
-          <li><a href="#">IT-сфера</a></li>
-          <li><a href="#">Водитель</a></li>
-          <li><a href="#">Горничная</a></li>
-          <li><a href="#">Гувернантка</a></li>
-          <li><a href="#">Домработница</a></li>
-          <li><a href="#">Дизайнер</a></li>
-          <li><a href="#">Оформитель</a></li>
-          <li><a href="#">Журналист</a></li>
-        </ul>
-        <ul>
-          <li><a href="#">Горничная</a></li>
-          <li><a href="#">IT-сфера</a></li>
-          <li><a href="#">Водитель</a></li>
-          <li><a href="#">Горничная</a></li>
-          <li><a href="#">Гувернантка</a></li>
-          <li><a href="#">Домработница</a></li>
-          <li><a href="#">Дизайнер</a></li>
-          <li><a href="#">Оформитель</a></li>
-          <li><a href="#">Журналист</a></li>
-          <li><a href="#">Инженер</a></li>
-          <li><a href="#">Медперсонал</a></li>
-        </ul>
-      </div>
-
-
-      <%= image_tag "esw.gif" %>
+      <%= render "components/right-sidebar"  %>
 
 
 <!--
@@ -223,7 +211,6 @@
     <tr>
       <td><%= post.title %></td>
       <td><%= post.description %></td>
-      <td><%= post.category_id && post.category.title %></td>
       <td><%= post.company %></td>
       <td><%= post.email %></td>
       <td><%= post.site %></td>
@@ -242,3 +229,14 @@
 
 -->
 
+
+<style>
+  .red {
+    background-color: #999999 !important;
+    color: #fff;
+  }
+  .red a {
+    cursor: not-allowed;
+    color: #fff;
+  }
+</style>

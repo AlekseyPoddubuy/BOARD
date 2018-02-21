@@ -1,9 +1,88 @@
-<p id="notice"><%= notice %></p>
+<div class="topic">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
 
-<p>
-  <strong>Theme:</strong>
-  <%= @theme.theme %>
-</p>
+				<%= image_tag "tbl.jpg" %>
+			<!--
 
-<%= link_to 'Edit', edit_theme_path(@theme) %> |
-<%= link_to 'Back', themes_path %>
+				<h1>Форум о работе, трудоустройстве и проживании за рубежом</h1>
+			-->			
+		</div>
+
+			<!--
+			<div class="col-lg-12">
+				<div class="log-in">
+					<input type="text" placeholder=" Логин">
+					<input type="text" placeholder=" Введите пароль">
+					<button>Войти</button>
+				</div>
+			</div>
+		-->
+
+
+		<div class="col-lg-9">
+			<div class="topiclist">
+
+
+
+				<p class="section"><i class="fa fa-file-text-o" aria-hidden="true"></i> <%= @theme.theme  %></p>
+
+
+
+				<% if @topics.count == 0 %>
+
+				<ul>
+					<li>
+						В данном розделе пока-что тем нет.
+					</li>
+				</ul>
+
+				<% else %>
+				<% @topics.each do |topic| %>
+				
+
+				<ul>
+
+
+					<li>
+						<div class="icons"><i class="fa fa-comments-o" aria-hidden="true"></i> </div>
+						<div class="block">
+							<%= link_to topic do %>
+							<%= topic.title %>
+							<% end %>
+
+							<p class="top-desc"><%= truncate(topic.content, length: 44) %></p>
+						</div>
+						<div class="topics-cn">3
+							<p>Тем(ы)</p>
+						</div>
+
+						<div class="topics-cn"><%= topic.replies.count %>
+							<p>ответов</p>
+						</div>
+
+						<div class="topics-time">Создано
+							<p><strong><%= topic.user.username %></strong> 22.10.2018</p>
+						</div>
+
+
+					</li>
+				</ul>
+
+
+				<% end %>
+				<% end %>
+
+			</div>
+
+
+		</div>
+		<div class="col-lg-3">
+			<%= render "components/forum-sidebar" %>
+		</div>
+	</div>
+</div>
+</div>
+
+

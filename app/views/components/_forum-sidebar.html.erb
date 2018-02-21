@@ -1,0 +1,57 @@
+
+<div class="themes">
+	<p><i class="fa fa-bar-chart" aria-hidden="true"></i> Разделы форума</p>
+
+</div>
+<div class="themes-list">
+
+	<ul>
+		<% @themes.each do |theme| %>
+
+		<% if theme.status == 0 %>
+		<li>
+
+		<i class="fa fa-caret-right" aria-hidden="true"></i> <%= link_to truncate(theme.theme, length: 55), theme, title: theme.theme %>
+
+		</li>
+		<% else %>
+
+		<% end %>
+		<% end %>
+
+	</ul>
+	<p>
+
+		<% if has_role?(:admin) %>
+
+		<%= link_to "Создать раздел", new_theme_path, class: 'btn btn-info' %>
+		<% else %>
+		<%= link_to "Предложить раздел", new_theme_path, class: 'btn btn-info' %>
+		<% end %>
+	</p>
+
+	<% if has_role?(:admin) || user_signed_in? %>
+
+	<% else %>
+	<p>
+		<%= link_to "Зарегистрируйтесь", new_user_registration_path, class: 'btn btn-warning' %>
+	</p>
+	<% end %>
+</div>
+
+<div class="topiclist">
+	<p class="section"><i class="fa fa-bar-chart" aria-hidden="true"></i> Рекламный блок</p>
+	<div class="adv">
+		<%= image_tag "esw.gif" %>
+	</div>
+</div>
+
+<div class="topiclist">
+	<p class="section"><i class="fa fa-bar-chart" aria-hidden="true"></i>Статистика</p>
+	<div class="adv">
+		<ul>
+			<li id="stat">Сейчас на сайте: <%= @user.count %></li>
+			<li class="stat">Всего тем: <%= @themes.where(:status => 0).count %></li>
+		</ul>
+	</div>
+</div>

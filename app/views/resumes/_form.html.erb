@@ -1,3 +1,7 @@
+<% if has_role?(:admin) %>
+
+
+
 <%= form_with(model: resume, local: true) do |form| %>
 <% if resume.errors.any? %>
 <div id="error_explanation">
@@ -53,4 +57,9 @@
 <%= f.label :attachment %>
 <%= f.file_field :attachment %>
 <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+<% else %>
+
+<p>Вы зарегистрированы как компания, и не можете оставлять свое резюме.</p>
 <% end %>

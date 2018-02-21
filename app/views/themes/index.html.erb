@@ -1,3 +1,5 @@
+<% if has_role?(:admin) %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Themes</h1>
@@ -12,12 +14,12 @@
 
   <tbody>
     <% @themes.each do |theme| %>
-      <tr>
-        <td><%= theme.theme %></td>
-        <td><%= link_to 'Show', theme %></td>
-        <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-        <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= theme.theme %></td>
+      <td><%= link_to 'Show', theme %></td>
+      <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
+      <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
@@ -25,3 +27,8 @@
 <br>
 
 <%= link_to 'New Theme', new_theme_path %>
+
+
+<% else %>
+<p>Sorry you haven't accsess</p>
+<% end %>

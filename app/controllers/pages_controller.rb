@@ -4,8 +4,13 @@ class PagesController < ApplicationController
 		
 	end
 
-	def agn
+	def admin
+		@categories = Category.all
 		@posts = Post.all
+	end
+
+	def user
+		
 	end
 
 end
