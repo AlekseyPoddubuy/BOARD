@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require bootstrap/dist/js/bootstrap
 //= require remodal
 //= require turbolinks
 //= require_tree .
