@@ -20,7 +20,12 @@
 
 
 <body>
+	<% if current_page?('/users/sign_in')%>
+s
+	<% else %>
 	<%= render "components/header" %>
+	<% end %>
+
 	<%= yield %>
 </body>
 </html>
