@@ -16,12 +16,6 @@
 
 
       <div class="field">
-        <p>Категории:</p>
-        <%= f.collection_select :role_id, Role.order(:name), :id, :name, { include_blank: "Выберите категорию" } %>
-      </div>
-
-
-      <div class="field">
         <%= f.label :nickname %><br />
         <%= f.text_field :nickname, autofocus: true %>
       </div>
