@@ -20,11 +20,6 @@
   <%= f.text_field :username, autofocus: true %>
 </div>
 
-<% Role.all.each do |role| %>
-<%= f.check_box :input_roles, {multiple: true}, role.name %>
-<%= role.name %>
-<% end %>
-
 <div class="field">
   <%= f.label :nickname %><br />
   <%= f.text_field :nickname, autofocus: true %>

@@ -10,6 +10,9 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @posts = Post.where(job_id: [@job]).page params[:page]
+    @countries = Country.all
+    @categories = Category.all
   end
 
   # GET /jobs/new
@@ -71,4 +74,4 @@ class JobsController < ApplicationController
     def job_params
       params.require(:job).permit(:title, :slug)
     end
-end
+  end
