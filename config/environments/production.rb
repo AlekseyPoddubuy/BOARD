@@ -1,6 +1,6 @@
 Rails.application.configure do
     # Verifies that versions and hashed value of the package contents in the project's package.json
-  config.webpacker.check_yarn_integrity = false
+    config.webpacker.check_yarn_integrity = false
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -53,6 +53,16 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
+
+
+  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "46.101.225.162",
+    :port    => 25,
+    :domain  => 'yourdomain.com'
+  }
+
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]

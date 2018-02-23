@@ -71,6 +71,7 @@ end
 group :development do
   gem "sqlite3"
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'letter_opener'
 end
 
 group :production do
