@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
 
 	def index
-		
 	end
 
 	def admin
@@ -9,8 +8,8 @@ class PagesController < ApplicationController
 		@posts = Post.all
 	end
 
-	def user
-		
+	def adminposts
+		@posts = Post.all
 	end
 
 end

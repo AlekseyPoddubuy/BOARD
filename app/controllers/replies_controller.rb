@@ -5,6 +5,11 @@ class RepliesController < ApplicationController
   before_action :set_reply, only: [:edit, :update, :show, :destroy]
 
 
+
+  def index
+    @replies = Reply.all    
+  end
+
   def create
     @reply = @topic.replies.create(reply_params)
     @reply.user_id = current_user.id
