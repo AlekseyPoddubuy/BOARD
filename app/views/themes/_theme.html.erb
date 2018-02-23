@@ -1,8 +1,10 @@
 <%= form_for theme do |f| %>
 <%= f.label :status, theme.theme %>
-<td><%= link_to 'Show', theme %></td>
-<td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-<td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
+<p>
+	<%= link_to 'Show', theme %>
+	<%= link_to 'Edit', edit_theme_path(theme) %>
+	<%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
 
 <% end %>

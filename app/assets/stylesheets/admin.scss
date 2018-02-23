@@ -1,3 +1,15 @@
 .admin-leftbar {
 	margin-top: 40px;
+	ul {
+		padding-left: 0;
+	}
+	li {
+		list-style-type: none;
+		background-color: #fff;
+		padding: 4px 4px 4px 17px;
+	}
+	li:hover {
+		background-color: #ecebeb;
+		cursor: pointer;
+	}
 }

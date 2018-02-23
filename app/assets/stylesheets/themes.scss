@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .themes {
-	background-color: #4390ff;
+	background-color: #4390ff !important;
 	color: #fff;
-	padding: 15px 6px 15px 20px;
+	padding: 15px 6px 15px 20px !important;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 14px;
@@ -18,10 +18,10 @@
 .themes-list {
 	ul {
 		background-color: #fff;
-		padding: 10px 5px 10px 15px;
+		padding: 10px 5px 10px 15px ;
 	}
 	li {
-		list-style-type: none;
+		list-style-type: none !important;
 		padding-top: 5px !important;
 		font-size: 14px;
 	}

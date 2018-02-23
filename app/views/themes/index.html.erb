@@ -1,37 +1,30 @@
 <% if has_role?(:admin) %>
 
 
-
-
-
-
 <%= link_to 'New Theme', new_theme_path %>
 
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
+  <div class="col-lg-4">
+    <%= render "components/admin-left" %>
+  </div>
+    <div class="col-lg-4">
       <div class="publish">
         <p>Опубликованные темы</p>
         <%= render @publish_themes %>
       </div>
       
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div class="unpublish">
         <p>Неопубликованые темы</p>
         <%= render @unpublish_themes %>
-
       </div>
     </div>
   </div>
 </div>
 
-
-<% elsif user_signed_in? %>
-
-Спасибо за предложеную тему, модератор подумает над етим
-
 <% else %>
-<p>Sorry you haven't accsess</p>
+Спасибо за предложеную тему, модератор подумает над етим
 <% end %>

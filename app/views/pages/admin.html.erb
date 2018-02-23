@@ -1,10 +1,14 @@
 <% if has_role?(:admin) %>
 
-
-<div class="container">
-  <div class="row">
-    <%= render "components/admin-left" %>
-  </div>
+<div class="topic">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<%= render "components/admin-left" %>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -14,5 +18,5 @@ Manager inda hooooooouseeee
 
 <script type="text/javascript">
     window.location.href="/posts"  // put your correct path in a string here
-  </script>
-  <% end %>
+</script>
+<% end %>
