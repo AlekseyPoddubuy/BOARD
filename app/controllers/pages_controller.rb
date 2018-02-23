@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
 	def adminposts
 		@posts = Post.all
+		@search = Search.new
 	end
 
 end
