@@ -1,6 +1,11 @@
 header {
 	background-color: #4390ff;
 	z-index: 9999;
+
+}
+.user-logo {
+	width: 35px;
+	margin-top: 0 !important;
 }
 .logo {
 	display: -webkit-box;
@@ -26,7 +31,7 @@ header {
 	ul li {
 		list-style-type: none;
 		display: inline-block;
-		margin: 24px 15px 0 15px;
+		margin: 24px 12px 0 12px;
 	}
 }
 

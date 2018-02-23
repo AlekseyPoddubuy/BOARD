@@ -3,7 +3,11 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="logo">
-					<p><%= link_to 'Rabota in', posts_path %></p> <%= image_tag "stars.png" %> 
+					<% if has_role? (:admin) %>
+					<p><%= link_to "Admin", admin_path %></p> <%= image_tag "stars.png" %>
+					<% else %>
+					<p><%= link_to 'Rabota in', posts_path %></p> <%= image_tag "stars.png" %></p> 
+					<% end %>
 				</div>
 			</div>
 
@@ -22,9 +26,9 @@
 							<li><%= link_to 'Каталог агентств', agencies_path %></li>
 							<li><%= link_to 'Форум', topics_path %></li>
 							<li><%= link_to 'База резюме', resumes_path %></li>
-
 							<li><%= link_to 'Добавить резюме', controller: "resumes", action: "new" %></li>
 							<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
+							<li class="user-logo"><%= link_to (image_tag "stars.png"), edit_user_registration_path %></li>
 						</ul>
 						<% end %>
 

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :countries
 
   get 'admin' => 'pages#admin', as: :admin
+  get 'adminposts' => 'pages#adminposts', as: :adminposts
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
