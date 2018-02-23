@@ -34,8 +34,8 @@
 							<div class="dropdown">
 								<span><%= link_to (image_tag "stars.png"), edit_user_registration_path, class: 'user-logo' %></span>
 								<div class="dropdown-content">
-									<p><%= link_to 'Редактировать', edit_user_registration_path%></p>
-									<p><%= link_to('Logout', destroy_user_session_path, method: :delete) %></p>
+									<p><%= link_to 'Редактировать', edit_user_registration_path%><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
+									<p><%= link_to('Выйти', destroy_user_session_path, method: :delete) %></p>
 								</div>
 							</div>
 
@@ -43,7 +43,7 @@
 
 							<li class="user-logo"></li>
 
-							<%= link_to('Login', new_user_session_path)  %>  
+							<%= link_to('Войти', new_user_session_path)  %>  
 
 							<% end %>
 						</ul>
@@ -54,29 +54,3 @@
 			</div>
 		</div>
 	</header>
-
-
-
-	<style>
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f9f9f9;
-			min-width: 160px;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			padding: 12px 16px;
-			z-index: 1;
-		}
-
-		.dropdown:hover .dropdown-content {
-			display: block;
-		}
-	</style>
-
-
-

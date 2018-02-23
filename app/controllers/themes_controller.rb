@@ -1,10 +1,12 @@
+
 class ThemesController < ApplicationController
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
   # GET /themes
   # GET /themes.json
   def index
-    @themes = Theme.all
+    @publish_themes = Theme.where(status: 0)
+    @unpublish_themes = Theme.where(status: nil)
     @topics = Topic.all
   end
 

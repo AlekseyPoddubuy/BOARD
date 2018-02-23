@@ -1,3 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <%= render "components/admin-left" %>
+    </div>
+    <div class="col-lg-9">
+     
+    </div>
+  </div>
+</div>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
@@ -15,15 +27,15 @@
 
   <tbody>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.title %></td>
-        <td><%= category.body %></td>
-        <td><%= category.description %></td>
-        <td><%= category.slug %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= category.body %></td>
+      <td><%= category.description %></td>
+      <td><%= category.slug %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

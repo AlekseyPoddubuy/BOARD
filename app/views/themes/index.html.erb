@@ -1,33 +1,36 @@
 <% if has_role?(:admin) %>
 
-<p id="notice"><%= notice %></p>
 
-<h1>Themes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Theme</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @themes.each do |theme| %>
-    <tr>
-      <td><%= theme.theme %></td>
-      <td><%= link_to 'Show', theme %></td>
-      <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-      <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
 <%= link_to 'New Theme', new_theme_path %>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="publish">
+        <p>Опубликованные темы</p>
+        <%= render @publish_themes %>
+      </div>
+      
+    </div>
+    <div class="col-lg-6">
+      <div class="unpublish">
+        <p>Неопубликованые темы</p>
+        <%= render @unpublish_themes %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% elsif user_signed_in? %>
+
+Спасибо за предложеную тему, модератор подумает над етим
 
 <% else %>
 <p>Sorry you haven't accsess</p>
