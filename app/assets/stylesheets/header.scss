@@ -4,8 +4,10 @@ header {
 
 }
 .user-logo {
-	width: 36px;
-	margin-top: 0 !important;
+	img {
+		width: 36px;
+		margin-top: 0 !important;
+	}
 }
 .logo {
 	display: -webkit-box;
