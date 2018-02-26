@@ -6,7 +6,7 @@
     <div class="col-lg-9">
       <p id="notice"><%= notice %></p>
       <div class="trigger">
-        <h1>Страны для вакансий <%= link_to 'Добавить категорию', new_country_path, class: 'btn btn-primary' %></h1> 
+        <h1>Страны для вакансий <%= link_to 'Добавить категорию', new_country_path, class: 'btn btn-primary' %> <%= @countries.count %></h1> 
       </div>
       <table class="table table-striped">
         <thead>
