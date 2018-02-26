@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   resources :countries
 
   get 'admin' => 'pages#admin', as: :admin
-  get 'admin-posts' => 'pages#adminposts', as: :adminposts
+  get 'resumelist' => 'pages#resumelist', as: :resumelist
+  get 'topiclist' => 'pages#topiclist', as: :topiclist
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

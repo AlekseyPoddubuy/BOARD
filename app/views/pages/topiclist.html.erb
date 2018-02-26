@@ -6,14 +6,8 @@
     <div class="col-lg-9">
       <p id="notice"><%= notice %></p>
       <div class="trigger">
-        <h1>Категории для вакансий <%= link_to 'Добавить категорию', new_category_path, class: 'btn btn-primary' %></h1> 
+        <h1>Список обсуждений <%= link_to 'Добавить обсуждение', new_topic_path, class: 'btn btn-primary' %></h1> 
       </div>
-
-
-
-
-
-
       <table class="table table-striped">
         <thead>
           <tr>
@@ -23,19 +17,15 @@
           </tr>
         </thead>
         <tbody>
-          <% @categories.each do |category| %>
+        <% @topics.each do |topic| %>
           <tr>
-            <td><%= category.title %></td>
-            <td><%= category.slug %></td>
-            <td><%= link_to 'Показать', category %> <%= link_to 'Редактировать', edit_category_path(category) %> <%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= topic.title %></td>
+            <td><%= link_to 'Показать', topic %> </td>
+            <td><%= link_to 'Редактировать', edit_topic_path(topic) %> <%= link_to 'Удалить', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-
-
     </div>
   </div>
 </div>
-
-

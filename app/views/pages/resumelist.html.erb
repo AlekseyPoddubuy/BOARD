@@ -29,22 +29,22 @@
 			<%= render "components/admin-left" %>
 		</div>
 		<div class="col-lg-9">
-			<table class="table table-hover">
+			<p id="notice"><%= notice %></p>
+			<div class="trigger">
+				<h1>Список всех резюме <%= link_to 'Добавить резюме', new_resume_path, class: 'btn btn-primary' %></h1> 
+			</div>
+			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col">#</th>
-						<th scope="col">First</th>
-						<th scope="col">Last</th>
-						<th scope="col">Handle</th>
+						<th>Название категории</th>
+						<th>Функции:</th>
 					</tr>
 				</thead>
 				<tbody>
-					<% @posts.each do |post| %>
+					<% @resumes.each do |resume| %>
 					<tr>
-						<td><%= link_to post.title, post %></td>
-						<td><%= link_to 'Show', post %></td>
-						<td><%= link_to 'Edit', edit_post_path(post) %></td>
-						<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						<td><%= resume.title %></td>
+						<td><%= link_to 'Показать', resume %> <%= link_to 'Редактировать', edit_resume_path(resume) %> <%= link_to 'Удалить', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 					</tr>
 					<% end %>
 				</tbody>

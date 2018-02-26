@@ -3,14 +3,18 @@
     <li class="themes"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> Раздел вакансий</li>
     <li><i class="fa fa-cogs"></i> <%= link_to 'Категории для вакансий', categories_path %></li>
     <li><i class="fa fa-cogs"></i> <%= link_to 'Страны для вакансий', countries_path %></li>
-    <li><i class="fa fa-cogs"></i> <%= link_to 'Список вакансий', adminposts_path %></li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Список вакансий', admin_path %></li>
     <li><i class="fa fa-cogs"></i> <%= link_to 'Добавить вакансию', new_post_path %></li>
-    <li class="themes"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> Раздел вакансий</li>
-    <li><i class="fa fa-cogs"></i> <%= link_to 'Список резюме', agencies_path %></li>
-    <li><i class="fa fa-cogs"></i> <%= link_to 'Список резюме', agencies_path %></li>
+    <li class="themes"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> Раздел резюме</li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Список резюме', resumelist_path %></li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Добавить резюме', new_resume_path %></li>
     <li class="themes"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> Раздел форума</li>
-    <li><i class="fa fa-cogs"></i> <%= link_to 'Список тем', topics_path %></li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Список тем', topiclist_path %></li>
     <li><i class="fa fa-cogs"></i> <%= link_to 'Список разделов', themes_path %></li>
-    <li><i class="fa fa-cogs"></i> <%= link_to 'Список ответов', themes_path %></li>
-  </ul>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Список ответов', replies_path %></li>
+    <li class="themes"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> Настройки сайта</li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Рекламные блоки', topics_path %></li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Коды отслеживаний', topics_path %></li>
+    <li><i class="fa fa-cogs"></i> <%= link_to 'Бан листы', topics_path %></li>
+</ul>
 </div>

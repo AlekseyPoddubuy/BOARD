@@ -1,5 +1,29 @@
-<% @replies.each do |reply| %>
-
-
-<%= reply.reply %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render "components/admin-left" %>
+		</div>
+		<div class="col-lg-9">
+			<p id="notice"><%= notice %></p>
+			<div class="trigger">
+				<h1>Список всех ответов</h1> 
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Название категории</th>
+						<th>Функции:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @replies.each do |reply| %>
+					<tr>
+						<td><%= reply.reply %></td>
+						<td><%= link_to 'Удалить', reply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

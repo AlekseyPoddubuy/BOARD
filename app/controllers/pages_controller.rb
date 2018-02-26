@@ -8,9 +8,14 @@ class PagesController < ApplicationController
 		@posts = Post.all
 	end
 
-	def adminposts
+	def resumelist
 		@posts = Post.all
 		@search = Search.new
+		@resumes = Resume.all
+	end
+
+	def topiclist
+		@topics = Topic.all
 	end
 
 end
