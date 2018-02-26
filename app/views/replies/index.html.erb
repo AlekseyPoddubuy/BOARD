@@ -18,8 +18,10 @@
 				<tbody>
 					<% @replies.each do |reply| %>
 					<tr>
-						<td><%= reply.reply %></td>
-						<td><%= link_to 'Удалить', reply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						<td><%= link_to reply.reply, [reply.topic] %></td>
+						<td>
+							<%= link_to [reply.topic, reply], method: :delete, data: { confirm: 'Are you sure?' } do %> Удалить комментарий<% end %> 
+						</td>
 					</tr>
 					<% end %>
 				</tbody>

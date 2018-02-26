@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'admin' => 'pages#admin', as: :admin
   get 'resumelist' => 'pages#resumelist', as: :resumelist
   get 'topiclist' => 'pages#topiclist', as: :topiclist
+  get 'agencylist' => 'pages#agencylist', as: :agencylist
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,10 +1,10 @@
-<%= form_for theme do |f| %>
-<%= f.label :status, theme.theme %>
-
-<p>
-	<%= link_to 'Show', theme %>
-	<%= link_to 'Edit', edit_theme_path(theme) %>
-	<%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %>
-</p>
-
-<% end %>
+<ul>
+	<%= form_for theme do |f| %>
+	<li>
+		<%= f.label :status, theme.theme %>
+	</li>
+	<%= link_to 'Показать', theme %>
+	<%= link_to 'Редактировать', edit_theme_path(theme) %>
+	<%= link_to 'Удалить', theme, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+</ul>

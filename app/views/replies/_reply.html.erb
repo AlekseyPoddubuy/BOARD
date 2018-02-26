@@ -1,14 +1,10 @@
 <div class="col-lg-12">
 	<hr>
 	<%= reply.user.username %><%= reply.user.nickname %> <%= time_ago_in_words(reply.created_at) %> 
-
-
 	<% if reply_author(reply) || has_role?(:admin)%>
 	<%= link_to [reply.topic, reply], method: :delete, data: { confirm: 'Are you sure?' } do %> Удалить комментарий<% end %> 
-
 	<% end %>
 	<br>
-	
 	<div class="reply">
 		<%= image_tag reply.user.avatar.url(:medium), style: 'width: 70px;'  %> <p><%= reply.reply %></p>
 	</div>

@@ -1,28 +1,33 @@
 <% if has_role?(:admin) %>
-
-
-<%= link_to 'New Theme', new_theme_path %>
-
-
 <div class="container">
   <div class="row">
-  <div class="col-lg-4">
-    <%= render "components/admin-left" %>
-  </div>
-    <div class="col-lg-4">
-      <div class="publish">
-        <p>Опубликованные темы</p>
-        <%= render @publish_themes %>
-      </div>
-      
+    <div class="col-lg-3">
+      <%= render "components/admin-left" %>
     </div>
-    <div class="col-lg-4">
-      <div class="unpublish">
-        <p>Неопубликованые темы</p>
-        <%= render @unpublish_themes %>
+
+    <div class="col-lg-9">
+     <div class="trigger">
+     <h1>Список тем для форума <%= link_to 'Добавить тему', new_theme_path, class: 'btn btn-primary' %> </h1> 
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="publish">
+          <p><span class="badge badge-success">Опубликованные темы</span></p>
+          <%= render @publish_themes %>
+        </div>
+
       </div>
+      <div class="col-lg-6">
+        <div class="unpublish">
+          <p><span class="badge badge-warning">Предложенные темы</span></p>
+          <%= render @unpublish_themes %>
+        </div>
+      </div>      
     </div>
   </div>
+
+</div>
 </div>
 
 <% else %>

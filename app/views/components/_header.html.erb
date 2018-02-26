@@ -40,9 +40,7 @@
 							<li><%= link_to 'База резюме', resumes_path %></li>
 							<li><%= link_to 'Добавить резюме', controller: "resumes", action: "new" %></li>
 							<li class="add-post"><%= link_to 'Подать обьявление', controller: "posts", action: "new" %> </li>
-
 							<% if user_signed_in? %>
-
 							<div class="dropdown">
 								<span><%= link_to (image_tag "stars.png"), edit_user_registration_path, class: 'user-logo' %></span>
 								<div class="dropdown-content">
@@ -50,13 +48,10 @@
 									<p><%= link_to('Выйти', destroy_user_session_path, method: :delete) %></p>
 								</div>
 							</div>
-
 							<% else %>
-
-							<li class="user-logo"></li>
-
-							<%= link_to('Войти', new_user_session_path)  %>  
-
+							<li class="user-logo">
+								<%= link_to('Войти', new_user_session_path)  %>  
+							</li>
 							<% end %>
 						</ul>
 						<% end %>

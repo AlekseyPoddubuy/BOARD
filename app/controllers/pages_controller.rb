@@ -18,4 +18,8 @@ class PagesController < ApplicationController
 		@topics = Topic.all
 	end
 
+	def agencylist
+		@agencies  = Agency.all
+	end
+
 end

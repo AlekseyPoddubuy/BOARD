@@ -30,6 +30,11 @@ header {
 	float: right;
 	a {
 		color: #fff;
+
+		&:hover {
+			text-decoration: none;
+			color: gold;
+		}
 	}
 	ul li {
 		list-style-type: none;

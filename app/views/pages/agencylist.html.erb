@@ -6,7 +6,7 @@
     <div class="col-lg-9">
       <p id="notice"><%= notice %></p>
       <div class="trigger">
-        <h1>Страны для вакансий <%= link_to 'Добавить категорию', new_country_path, class: 'btn btn-primary' %></h1> 
+        <h1>Список обсуждений <%= link_to 'Добавить агентство', new_agency_path, class: 'btn btn-primary' %></h1> 
       </div>
       <table class="table table-striped">
         <thead>
@@ -17,11 +17,11 @@
           </tr>
         </thead>
         <tbody>
-        <% @countries.each do |country| %>
+          <% @agencies.each do |agency| %>
           <tr>
-            <td><%= country.title %></td>
-            <td><%= country.slug %></td>
-            <td><%= link_to 'Показать', country %> <%= link_to 'Редактировать', edit_country_path(country) %> <%= link_to 'Удалить', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= agency.title %></td>
+            <td><%= link_to 'Показать', agency %> </td>
+            <td><%= link_to 'Редактировать', edit_agency_path(agency) %> <%= link_to 'Удалить', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
         </tbody>
