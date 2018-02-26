@@ -3,12 +3,12 @@
       <ul>
 
 
-        <% @countries.order(title: :desc)[0,15].each do |country| %>
+        <% @countries.order(title: :desc).each do |country| %>
         <li><%= link_to country.title, country %></li>
         <% end %>
       </ul>
       <ul>
-        <% @countries.order(title: :desc)[16,31].each do |country| %>
+        <% @countries.order(title: :desc).each do |country| %>
         <li><%= link_to country.title, country %></li>
         <% end %>
       </ul>
@@ -18,12 +18,12 @@
       <p>Вакансии по категориям:</p>
       <ul>
         <% @categories.each do |category| %>
-        <li><%= link_to category.title, category %></li>
+        <li><%= link_to truncate(category.title, length: 15), category, title: category.title %></li>
         <% end %>
       </ul>
       <ul>
         <% @categories.each do |category| %>
-        <li><%= link_to category.title, category %></li>
+        <li><%= link_to truncate(category.title, length: 15), category %></li>
         <% end %>
       </ul>
     </div>
