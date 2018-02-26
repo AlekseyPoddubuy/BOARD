@@ -3,12 +3,12 @@
       <ul>
 
 
-        <% @countries[1,16].each do |country| %>
+        <% @countries.order(title: :desc)[1,16].each do |country| %>
         <li><%= link_to country.title, country %></li>
         <% end %>
       </ul>
       <ul>
-        <% @countries[16,31].each do |country| %>
+        <% @countries.order(title: :desc)[17,31].each do |country| %>
         <li><%= link_to country.title, country %></li>
         <% end %>
       </ul>
