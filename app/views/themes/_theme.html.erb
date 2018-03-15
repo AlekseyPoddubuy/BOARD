@@ -1,4 +1,8 @@
+<% if theme.status == 0 %>
 <ul>
+<% else %>
+ <ul class="sss">
+<% end %>
 	<%= form_for theme do |f| %>
 	<li>
 		<%= f.label :status, theme.theme %>

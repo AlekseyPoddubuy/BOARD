@@ -17,6 +17,7 @@ end
   # GET /topics/1.json
   def show
     @topics = Topic.all
+    @replies = Reply.page params[:page]
   end
 
   # GET /topics/new
